@@ -1,12 +1,19 @@
-import './App.css';
+import "./App.css";
+/* */
+
+import Header from "./components/Header";
+/* */
+
+import Home from "./pages/Home";
+/* */
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Portfolio UX/UI Designer</h1>
-        <p>Bienvenue sur mon portfolio</p>
-      </header>
+      <Header />
+      <main>
+        <Home />
+      </main>
     </div>
   );
 }
