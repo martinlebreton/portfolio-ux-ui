@@ -1,13 +1,39 @@
-function Header() {
+function Header({ currentPage, setCurrentPage }) {
+  const handleNavClick = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <header className="header">
       <div className="container">
-        <p className="logo">John DOE</p>
+        <h1 className="logo" onClick={() => handleNavClick("home")}>
+          John DOE
+        </h1>
         <nav>
-          <a href="#accueil">Accueil</a>
-          <a href="#projets">Projets</a>
-          <a href="#about">À propos</a>
-          <a href="#contact">Contact</a>
+          <button
+            className={currentPage === "home" ? "active" : ""}
+            onClick={() => handleNavClick("home")}
+          >
+            Accueil
+          </button>
+          <button
+            className={currentPage === "projects" ? "active" : ""}
+            onClick={() => handleNavClick("projects")}
+          >
+            Projets
+          </button>
+          <button
+            className={currentPage === "about" ? "active" : ""}
+            onClick={() => handleNavClick("about")}
+          >
+            À propos
+          </button>
+          <button
+            className={currentPage === "contact" ? "active" : ""}
+            onClick={() => handleNavClick("contact")}
+          >
+            Contact
+          </button>
         </nav>
       </div>
     </header>

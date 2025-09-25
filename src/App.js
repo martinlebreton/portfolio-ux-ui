@@ -1,19 +1,47 @@
+import { useState } from "react";
 import "./App.css";
-/* */
-
 import Header from "./components/Header";
-/* */
-
 import Home from "./pages/Home";
-/* */
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import ProjectDetail from "./pages/ProjectDetail";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("home");
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+
+  const handleProjectClick = (projectId) => {
+    setSelectedProjectId(projectId);
+    setCurrentPage("project-detail");
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "home":
+        return <Home onProjectClick={handleProjectClick} />;
+      case "about":
+        return <About />;
+      case "projects":
+        return <Projects onProjectClick={handleProjectClick} />;
+      case "contact":
+        return <Contact />;
+      case "project-detail":
+        return (
+          <ProjectDetail
+            projectId={selectedProjectId}
+            setCurrentPage={setCurrentPage}
+          />
+        );
+      default:
+        return <Home onProjectClick={handleProjectClick} />;
+    }
+  };
+
   return (
     <div className="App">
-      <Header />
-      <main>
-        <Home />
-      </main>
+      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <main>{renderPage()}</main>
     </div>
   );
 }

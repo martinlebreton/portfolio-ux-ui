@@ -1,6 +1,6 @@
-function ProjectCard({ project }) {
+function ProjectCard({ project, onProjectClick }) {
   return (
-    <div className="project-card">
+    <div className="project-card" onClick={() => onProjectClick(project.id)}>
       <div className="project-image">
         <img src={project.image} alt={project.title} />
       </div>
