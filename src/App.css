@@ -1,9 +1,19 @@
-.App {
-  text-align: center;
-  padding: 20px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-header p {
-  color: #666;
-  font-size: 18px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow p-6;
+  }
+
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }

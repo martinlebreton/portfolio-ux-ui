@@ -3,38 +3,42 @@ function Header({ currentPage, setCurrentPage }) {
     setCurrentPage(page);
   };
 
+  const getPageLabel = (page) => {
+    const labels = {
+      home: "Accueil",
+      projects: "Projets",
+      about: "À propos",
+      contact: "Contact",
+    };
+    return labels[page];
+  };
+
   return (
-    <header className="header">
-      <div className="container">
-        <h1 className="logo" onClick={() => handleNavClick("home")}>
-          John DOE
-        </h1>
-        <nav>
-          <button
-            className={currentPage === "home" ? "active" : ""}
+    <header className="bg-white shadow-md fixed w-full top-0 z-50">
+      <div className="container py-4">
+        <div className="flex justify-between items-center">
+          <h1
+            className="text-2xl font-bold text-gray-800 cursor-pointer hover:text-primary transition-colors"
             onClick={() => handleNavClick("home")}
           >
-            Accueil
-          </button>
-          <button
-            className={currentPage === "projects" ? "active" : ""}
-            onClick={() => handleNavClick("projects")}
-          >
-            Projets
-          </button>
-          <button
-            className={currentPage === "about" ? "active" : ""}
-            onClick={() => handleNavClick("about")}
-          >
-            À propos
-          </button>
-          <button
-            className={currentPage === "contact" ? "active" : ""}
-            onClick={() => handleNavClick("contact")}
-          >
-            Contact
-          </button>
-        </nav>
+            John DOE
+          </h1>
+          <nav className="flex space-x-8">
+            {["home", "projects", "about", "contact"].map((page) => (
+              <button
+                key={page}
+                className={`font-medium transition-colors ${
+                  currentPage === page
+                    ? "text-primary border-b-2 border-primary pb-1"
+                    : "text-gray-600 hover:text-primary"
+                }`}
+                onClick={() => handleNavClick(page)}
+              >
+                {getPageLabel(page)}
+              </button>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   );

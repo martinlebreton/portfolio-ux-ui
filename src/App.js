@@ -21,11 +21,11 @@ function App() {
       case "home":
         return <Home onProjectClick={handleProjectClick} />;
       case "about":
-        return <About />;
+        return <About />; // ← About n'a pas besoin de onProjectClick
       case "projects":
         return <Projects onProjectClick={handleProjectClick} />;
       case "contact":
-        return <Contact />;
+        return <Contact />; // ← Contact n'a pas besoin de onProjectClick
       case "project-detail":
         return (
           <ProjectDetail
@@ -41,7 +41,11 @@ function App() {
   return (
     <div className="App">
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main>{renderPage()}</main>
+      <main className="pt-20">
+        {" "}
+        {/* Espace pour header fixe */}
+        {renderPage()}
+      </main>
     </div>
   );
 }
