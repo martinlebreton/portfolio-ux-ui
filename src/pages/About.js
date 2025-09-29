@@ -1,11 +1,13 @@
 function About() {
   const skills = [
     { name: "Figma", level: 95 },
-    { name: "Adobe XD", level: 85 },
-    { name: "Sketch", level: 80 },
+    { name: "WordPress", level: 85 },
+    { name: "Illustrator", level: 85 },
     { name: "Prototypage", level: 90 },
-    { name: "Recherche UX", level: 85 },
-    { name: "Design System", level: 80 },
+    { name: "Recherche UX", level: 75 },
+    { name: "Design System", level: 60 },
+    { name: "React", level: 20 },
+    { name: "SEO", level: 70 },
   ];
 
   const experience = [

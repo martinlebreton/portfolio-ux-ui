@@ -1,13 +1,13 @@
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/projects";
-import { customers } from "../data/customers";
 import CustomerElement from "../components/CustomerElement";
+import { customers } from "../data/customers";
 
-function Home({ onProjectClick }) {
+function Home({ onProjectClick, setCurrentPage }) {
   return (
     <section className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-40">
         <div className="container text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             John DOE
@@ -50,9 +50,7 @@ function Home({ onProjectClick }) {
           <div className="text-center mt-12">
             <button
               className="btn-primary"
-              onClick={() =>
-                onProjectClick ? {} : (window.location.hash = "projects")
-              }
+              onClick={() => setCurrentPage("projects")}
             >
               Voir tous les projets
             </button>
