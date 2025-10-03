@@ -17,10 +17,10 @@ export const projects = [
   {
     id: 2,
     title: "MD Foncier Conseil",
-    category: "UX Design",
-    description: "Interface de visualisation de données pour professionnels",
+    category: "Web Design",
+    description: "Site vitrine pour une société de conseil juridique à Cholet",
     image: "/images/project2.png",
-    tags: ["Web", "Dashboard", "Data Viz"],
+    tags: ["Web", "Figma", "Seo"],
     contexte:
       "Le projet visait à développer une interface permettant aux professionnels de visualiser et analyser des données complexes de manière claire et efficace.",
     defi: "Le défi principal était de présenter des informations volumineuses sans surcharger l'utilisateur, tout en assurant une navigation fluide et intuitive.",
