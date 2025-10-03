@@ -17,12 +17,12 @@ function Header({ currentPage, setCurrentPage }) {
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="container py-4">
         <div className="flex justify-between items-center">
-          <h1
-            className="text-2xl font-bold text-gray-800 cursor-pointer hover:text-primary transition-colors"
+          <span
+            className="text-2xl font-bold cursor-pointer hover:text-primary transition-colors"
             onClick={() => handleNavClick("home")}
           >
             John DOE
-          </h1>
+          </span>
           <nav className="flex space-x-8">
             {["home", "projects", "about", "contact"].map((page) => (
               <button

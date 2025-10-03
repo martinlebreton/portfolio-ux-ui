@@ -6,7 +6,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors;
+    @apply bg-indigo-700 hover:bg-indigo-500 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-md;
   }
 
   .card {
@@ -15,6 +15,15 @@
 
   .container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  h1 {
+    @apply text-slate-800 font-bold text-5xl mb-6 md:text-6xl;
+  }
+  .btn-outline {
+    @apply bg-white border-2 border-indigo-700 text-indigo-700 hover:bg-indigo-50 font-medium py-3 px-6 rounded-lg transition-colors shadow-md;
+  }
+  .btn-white {
+    @apply bg-white text-gray-800 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-colors shadow-md;
   }
 }
 
@@ -33,4 +42,22 @@
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
   opacity: 0;
+}
+
+.animated-background {
+  background-size: 400%;
+  -webkit-animation: animation 10s ease infinite;
+  -moz-animation: animation 10s ease infinite;
+  animation: animation 10s ease infinite;
+}
+
+@keyframes animation {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }

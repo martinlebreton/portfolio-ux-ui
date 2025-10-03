@@ -7,11 +7,9 @@ function Home({ onProjectClick, setCurrentPage }) {
   return (
     <section className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-40">
+      <div className="bg-gradient-to-br animated-background from-indigo-100 to-indigo-200 pt-40 pb-32">
         <div className="container text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            John DOE
-          </h1>
+          <h1 className="">John DOE</h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
             UX/UI Designer passionné par les expériences utilisateur
             exceptionnelles
@@ -22,6 +20,7 @@ function Home({ onProjectClick, setCurrentPage }) {
           >
             Découvrir mes projets
           </button>
+          <button className="btn-white text-lg ml-4">Me contacter</button>
         </div>
       </div>
 

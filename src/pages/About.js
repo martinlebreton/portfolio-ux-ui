@@ -1,3 +1,8 @@
+import AvatarCard from "../components/AvatarCard";
+import StatsCard from "../components/StatsCard";
+import SkillBar from "../components/SkillBar";
+import ExperienceItem from "../components/ExperienceItem";
+
 function About() {
   const skills = [
     { name: "Figma", level: 95 },
@@ -24,7 +29,6 @@ function About() {
       company: "Studio Créatif",
       description: "Design d'identités visuelles et supports de communication",
     },
-    ,
     {
       year: "2014 - 2018",
       role: "Chargé de communication digitale",
@@ -36,36 +40,23 @@ function About() {
   return (
     <section className="min-h-screen bg-gray-50">
       {/* Hero About */}
-      <div className="bg-white py-20">
+      <div className="bg-white pt-32 pb-20">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl font-bold text-gray-900 mb-6">
-                À propos de John DOE
-              </h1>
+              <h1 className="">À propos de John DOE</h1>
               <p className="text-xl text-gray-600 mb-8">
                 UX/UI Designer passionné avec 3+ années d'expérience dans la
                 création d'expériences digitales exceptionnelles.
               </p>
               <div className="flex space-x-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">50+</div>
-                  <div className="text-gray-600">Projets réalisés</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">25+</div>
-                  <div className="text-gray-600">Clients satisfaits</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">3+</div>
-                  <div className="text-gray-600">Années d'expérience</div>
-                </div>
+                <StatsCard value="50+" label="Projets réalisés" />
+                <StatsCard value="25+" label="Clients satisfaits" />
+                <StatsCard value="3+" label="Années d'expérience" />
               </div>
             </div>
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-primary to-blue-600 rounded-2xl mx-auto flex items-center justify-center">
-                <div className="text-6xl text-white">👨‍💻</div>
-              </div>
+              <AvatarCard emoji="👨‍💻" />
             </div>
           </div>
         </div>
@@ -85,25 +76,11 @@ function About() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {skills.map((skill) => (
-              <div
+              <SkillBar
                 key={skill.name}
-                className="bg-white p-6 rounded-xl shadow-sm"
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-gray-900">
-                    {skill.name}
-                  </span>
-                  <span className="text-primary font-semibold">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className="bg-gradient-to-r from-primary to-blue-600 h-3 rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </div>
+                name={skill.name}
+                level={skill.level}
+              />
             ))}
           </div>
         </div>
@@ -123,24 +100,14 @@ function About() {
 
           <div className="max-w-3xl mx-auto">
             {experience.map((exp, index) => (
-              <div key={index} className="relative pl-8 pb-12 last:pb-0">
-                <div className="absolute left-0 top-0 w-4 h-4 bg-primary rounded-full"></div>
-                {index !== experience.length - 1 && (
-                  <div className="absolute left-2 top-4 w-0.5 h-full bg-gray-200 -translate-x-0.5"></div>
-                )}
-                <div className="bg-gray-50 p-6 rounded-xl ml-4">
-                  <div className="text-primary font-semibold mb-1">
-                    {exp.year}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">
-                    {exp.role}
-                  </h3>
-                  <div className="text-gray-600 font-medium mb-3">
-                    {exp.company}
-                  </div>
-                  <p className="text-gray-700">{exp.description}</p>
-                </div>
-              </div>
+              <ExperienceItem
+                key={index}
+                year={exp.year}
+                role={exp.role}
+                company={exp.company}
+                description={exp.description}
+                isLast={index === experience.length - 1}
+              />
             ))}
           </div>
         </div>

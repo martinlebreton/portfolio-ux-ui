@@ -11,9 +11,7 @@ function Privacy({ setCurrentPage }) {
             <span>Retour à l&apos;accueil</span>
           </button>
 
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">
-            Politique de confidentialité
-          </h1>
+          <h1 className="">Politique de confidentialité</h1>
 
           <div className="space-y-8 text-gray-700">
             <div>

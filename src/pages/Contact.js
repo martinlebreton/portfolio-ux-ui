@@ -62,12 +62,10 @@ function Contact() {
   ];
 
   return (
-    <section className="min-h-screen bg-gray-50">
-      <div className="bg-white py-20">
+    <section className="min-h-screen bg-gray-50 ">
+      <div className="bg-white pt-32 pb-20">
         <div className="container text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Contactez-moi
-          </h1>
+          <h1 className="">Contactez-moi</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Un projet en tête ? Une question ? N&apos;hésitez pas à me
             contacter. Je vous réponds généralement sous 24h.
@@ -193,7 +191,7 @@ function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full py-4 px-6 rounded-lg font-medium transition-all ${
+                    className={`w-full btn-primary py-4 px-6 rounded-lg transition-all ${
                       isSubmitting
                         ? "bg-gray-400 cursor-not-allowed"
                         : "btn-primary hover:shadow-lg"

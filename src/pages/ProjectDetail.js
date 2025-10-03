@@ -1,4 +1,6 @@
 import { projects } from "../data/projects";
+import ProjectInfoCard from "../components/ProjectInfoCard";
+import ProjectCTA from "../components/ProjectCTA";
 
 function ProjectDetail({ projectId, setCurrentPage }) {
   const project = projects.find((p) => p.id === parseInt(projectId));
@@ -8,9 +10,7 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       <section className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">❌</div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            Projet non trouvé
-          </h1>
+          <h1 className="text-3xl mb-4">Projet non trouvé</h1>
           <button
             onClick={() => setCurrentPage("projects")}
             className="btn-primary"
@@ -21,33 +21,6 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       </section>
     );
   }
-
-  const sections = [
-    {
-      title: "Le Contexte",
-      icon: "🎯",
-      content:
-        "Ce projet est né d'un besoin d'améliorer l'expérience utilisateur et de moderniser l'interface existante. L'objectif était de créer une solution intuitive et engageante.",
-    },
-    {
-      title: "Le Défi",
-      icon: "⚡",
-      content:
-        "Repenser entièrement l'architecture de l'information tout en conservant les fonctionnalités existantes. Créer une interface moderne qui réponde aux attentes des utilisateurs actuels.",
-    },
-    {
-      title: "La Solution",
-      icon: "✨",
-      content:
-        "Mise en place d'un design system cohérent, refonte de l'arborescence, prototypage et tests utilisateurs itératifs jusqu'à validation du concept final.",
-    },
-    {
-      title: "Les Résultats",
-      icon: "📈",
-      content:
-        "Augmentation de 40% de l'engagement utilisateur, réduction de 60% du taux de rebond, et satisfaction client mesurée à 4.8/5.",
-    },
-  ];
 
   const processSteps = [
     {
@@ -104,9 +77,7 @@ function ProjectDetail({ projectId, setCurrentPage }) {
             <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-medium mb-6">
               {project.category}
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              {project.title}
-            </h1>
+            <h1 className="">{project.title}</h1>
             <p className="text-xl text-gray-600 mb-8">{project.description}</p>
             <div className="flex flex-wrap justify-center gap-3">
               {project.tags.map((tag) => (
@@ -142,20 +113,18 @@ function ProjectDetail({ projectId, setCurrentPage }) {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {sections.map((section, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="text-4xl mb-4">{section.icon}</div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {section.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {section.content}
-                  </p>
-                </div>
-              ))}
+              <ProjectInfoCard title="Contexte" icon="🎯">
+                {project.contexte}
+              </ProjectInfoCard>
+              <ProjectInfoCard title="Défi" icon="⚡">
+                {project.defi}
+              </ProjectInfoCard>
+              <ProjectInfoCard title="Solution" icon="✨">
+                {project.solution}
+              </ProjectInfoCard>
+              <ProjectInfoCard title="Résultat" icon="📈">
+                {project.resultat}
+              </ProjectInfoCard>
             </div>
           </div>
         </div>
@@ -195,30 +164,10 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       </div>
 
       {/* CTA Navigation */}
-      <div className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Vous aimez ce projet ?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Découvrez mes autres réalisations ou contactez-moi pour en discuter
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => setCurrentPage("projects")}
-              className="btn-primary"
-            >
-              Voir tous les projets
-            </button>
-            <button
-              onClick={() => setCurrentPage("contact")}
-              className="bg-white text-primary hover:bg-gray-50 font-medium py-3 px-6 rounded-lg transition-colors shadow-md"
-            >
-              Me contacter
-            </button>
-          </div>
-        </div>
-      </div>
+      <ProjectCTA
+        onProjectsClick={() => setCurrentPage("projects")}
+        onContactClick={() => setCurrentPage("contact")}
+      />
     </section>
   );
 }

@@ -20,16 +20,16 @@ function Projects({ onProjectClick }) {
   return (
     <section className="min-h-screen bg-gray-50">
       {/* Hero Projects */}
-      <div className="bg-white py-20">
+      <div className="bg-white pt-32 pb-20">
         <div className="container text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Mes Projets</h1>
+          <h1 className="">Mes Projets</h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Découvrez mes réalisations en UX/UI Design. Chaque projet raconte
             une histoire unique de résolution de problèmes utilisateurs.
           </p>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -48,7 +48,7 @@ function Projects({ onProjectClick }) {
       </div>
 
       {/* Projects Grid */}
-      <div className="py-20">
+      <div className="pb-20 pt-10">
         <div className="container">
           {/* Results Counter */}
           <div className="mb-8">
