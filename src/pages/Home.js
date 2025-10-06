@@ -2,6 +2,7 @@ import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/projects";
 import CustomerElement from "../components/CustomerElement";
 import { customers } from "../data/customers";
+import NetlifyCustomers from "../components/netlifyCustomers";
 
 function Home({ onProjectClick, setCurrentPage }) {
   return (
@@ -72,6 +73,9 @@ function Home({ onProjectClick, setCurrentPage }) {
               <CustomerElement key={customer.id} customer={customer} />
             ))}
           </div>
+
+          {/* Netlify Customers Section */}
+          <NetlifyCustomers />
         </div>
       </div>
     </section>
