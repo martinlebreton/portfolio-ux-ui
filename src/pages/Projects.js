@@ -7,9 +7,10 @@ function Projects({ onProjectClick }) {
 
   const categories = [
     { id: "all", name: "Tous les projets" },
-    { id: "UX/UI Design", name: "UX/UI Design" },
-    { id: "UX Design", name: "UX Design" },
-    { id: "UI Design", name: "UI Design" },
+    ...Array.from(new Set(projects.map((p) => p.category))).map((cat) => ({
+      id: cat,
+      name: cat,
+    })),
   ];
 
   const filteredProjects =
@@ -22,7 +23,7 @@ function Projects({ onProjectClick }) {
       {/* Hero Projects */}
       <div className="bg-white pt-32 pb-20">
         <div className="container text-center">
-          <h1 className="">Mes Projets</h1>
+          <h1 className="">Mes projets</h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             Découvrez mes réalisations en UX/UI Design. Chaque projet raconte
             une histoire unique de résolution de problèmes utilisateurs.
@@ -50,7 +51,7 @@ function Projects({ onProjectClick }) {
       {/* Projects Grid */}
       <div className="pb-20 pt-10">
         <div className="container">
-          {/* Results Counter */}
+          {/* Results Counter 
           <div className="mb-8">
             <p className="text-gray-600">
               <span className="font-semibold text-primary">
@@ -66,7 +67,7 @@ function Projects({ onProjectClick }) {
                 </span>
               )}
             </p>
-          </div>
+          </div>*/}
 
           {/* Projects Grid with Animation */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

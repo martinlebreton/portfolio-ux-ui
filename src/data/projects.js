@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "Andaré Conseil",
-    category: "UX/UI Design",
+    category: "Web Design",
     description: "Refonte complète d'une application mobile de vente en ligne",
     image: "/images/project1.png",
     tags: ["Mobile", "E-commerce", "Figma"],
@@ -47,7 +47,7 @@ export const projects = [
   {
     id: 4,
     title: "Lapincitron",
-    category: "UI Design",
+    category: "UX Design",
     description: "Identité visuelle et site web pour startup tech",
     image: "/images/lapincitron.png",
     tags: ["Branding", "Web", "Startup"],

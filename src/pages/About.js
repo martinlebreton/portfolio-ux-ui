@@ -67,11 +67,9 @@ function About() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Mes Compétences
+              Mes compétences
             </h2>
-            <p className="text-xl text-gray-600">
-              Outils et expertises que je maîtrise
-            </p>
+            <p className="text-xl text-gray-600">Outils et expertises</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -91,7 +89,7 @@ function About() {
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Mon Parcours
+              Mon parcours
             </h2>
             <p className="text-xl text-gray-600">
               Les étapes clés de mon évolution professionnelle

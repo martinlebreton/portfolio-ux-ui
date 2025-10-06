@@ -83,7 +83,7 @@ function ProjectDetail({ projectId, setCurrentPage }) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-medium"
+                  className="bg-gray-100 text-gray-700 text-sm px-4 py-2 rounded-full font-medium"
                 >
                   {tag}
                 </span>
@@ -97,7 +97,7 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       <div className="py-12 bg-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative overflow-hidden ">
               <img
                 src={project.image}
                 alt={project.title}
@@ -109,8 +109,8 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       </div>
 
       {/* Sections du projet */}
-      <div className="py-20">
-        <div className="container">
+      <div className="py-20 bg-white">
+        <div className="container ">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
               L'histoire du projet {project.title}

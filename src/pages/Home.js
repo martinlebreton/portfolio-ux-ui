@@ -7,7 +7,7 @@ function Home({ onProjectClick, setCurrentPage }) {
   return (
     <section className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br animated-background from-indigo-100 to-indigo-200 pt-40 pb-32">
+      <div className="bg-gradient-to-br animated-background from-indigo-100 via-slate-100 to-indigo-200 pt-40 pb-32">
         <div className="container text-center">
           <h1 className="">John DOE</h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">

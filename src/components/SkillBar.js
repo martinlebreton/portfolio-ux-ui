@@ -7,7 +7,7 @@ function SkillBar({ name, level }) {
       </div>
       <div className="w-full bg-gray-200 rounded-full h-3">
         <div
-          className="bg-gradient-to-r from-primary to-blue-600 h-3 rounded-full transition-all duration-1000"
+          className="bg-gradient-to-l from-primary to-indigo-400 h-3 rounded-full transition-all duration-1000"
           style={{ width: `${level}%` }}
         ></div>
       </div>
