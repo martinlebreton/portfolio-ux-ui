@@ -1,15 +1,18 @@
 import ProjectCard from "../components/ProjectCard";
+import ServiceElement from "../components/ServiceElement";
+
 import { projects } from "../data/projects";
-import CustomerElement from "../components/CustomerElement";
-import { customers } from "../data/customers";
-import NetlifyCustomers from "../components/netlifyCustomers";
+import { services } from "../data/services";
 
 function Home({ onProjectClick, setCurrentPage }) {
   return (
     <section className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br animated-background from-indigo-100 via-slate-100 to-indigo-200 pt-40 pb-32">
-        <div className="container text-center">
+      <section className="bg-gradient-to-br animated-background from-indigo-100 via-slate-100 to-indigo-200 pt-64 pb-32">
+        <div
+          className="container text-center animate-fade-in"
+          style={{ animationDelay: `0.1s` }}
+        >
           <h1 className="">*John DOE*</h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
             UX/UI Designer passionné par les expériences utilisateur
@@ -17,23 +20,36 @@ function Home({ onProjectClick, setCurrentPage }) {
           </p>
           <button
             className="btn-primary text-lg"
-            onClick={() => window.scrollTo(0, 500)}
+            onClick={() => {
+              document
+                .getElementById("projets")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             Découvrir mes projets
           </button>
-          <button className="btn-white text-lg ml-4">Me contacter</button>
+          <button
+            className="btn-white text-lg ml-4"
+            onClick={() => {
+              document
+                .getElementById("services")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Mes services
+          </button>
         </div>
-      </div>
+      </section>
 
       {/* Projects Section */}
-      <div className="py-20 bg-white">
+      <section id="projets" className="py-20 bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-indigo-600 mb-4">
               Mes derniers projets
             </h2>
             <p className="text-xl text-gray-600">
-              Découvrez quelques-unes de mes réalisations récentes
+              Découvrez quelques-uns de mes projets
             </p>
           </div>
 
@@ -56,28 +72,28 @@ function Home({ onProjectClick, setCurrentPage }) {
             </button>
           </div>
         </div>
-      </div>
-      {/* Clients Section */}
-      <div className="py-20 bg-gray-50">
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 bg-gray-50">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Ils m'ont fait confiance
+            <h2 className="text-4xl font-bold text-indigo-600 mb-4">
+              Mes services
             </h2>
             <p className="text-xl text-gray-600">
-              Quelques clients pour qui j'ai eu le plaisir de travailler
+              Design web, performance SEO et identité visuelle : trois leviers
+              pour un site utile, visible et cohérent. Découvrez comment je mets
+              mes compétences spécifiques au service de votre projet.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {customers.map((customer) => (
-              <CustomerElement key={customer.id} customer={customer} />
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <ServiceElement key={service.id} service={service} />
             ))}
           </div>
-
-          {/* Netlify Customers Section */}
-          <NetlifyCustomers />
         </div>
-      </div>
+      </section>
     </section>
   );
 }

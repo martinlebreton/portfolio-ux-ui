@@ -2,6 +2,9 @@ import AvatarCard from "../components/AvatarCard";
 import StatsCard from "../components/StatsCard";
 import SkillBar from "../components/SkillBar";
 import ExperienceItem from "../components/ExperienceItem";
+import CustomerElement from "../components/CustomerElement";
+
+import { customers } from "../data/customers";
 
 function About() {
   const skills = [
@@ -110,6 +113,25 @@ function About() {
           </div>
         </div>
       </div>
+
+      {/* Customers Section */}
+      <section id="customers" className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Ils m'ont fait confiance
+            </h2>
+            <p className="text-xl text-gray-600">
+              Quelques clients pour qui j'ai eu le plaisir de travailler
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {customers.map((customer) => (
+              <CustomerElement key={customer.id} customer={customer} />
+            ))}
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

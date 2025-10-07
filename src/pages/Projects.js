@@ -2,7 +2,13 @@ import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/projects";
 
+import { useEffect } from "react";
+
 function Projects({ onProjectClick }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [

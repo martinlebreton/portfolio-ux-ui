@@ -2,8 +2,14 @@ import { projects } from "../data/projects";
 import ProjectInfoCard from "../components/ProjectInfoCard";
 import ProjectCTA from "../components/ProjectCTA";
 
+import { useEffect } from "react";
+
 function ProjectDetail({ projectId, setCurrentPage }) {
   const project = projects.find((p) => p.id === parseInt(projectId));
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   if (!project) {
     return (
@@ -58,11 +64,11 @@ function ProjectDetail({ projectId, setCurrentPage }) {
   return (
     <section className="min-h-screen bg-gray-50">
       {/* Header avec retour */}
-      <div className="bg-white border-b sticky z-40">
+      <div className="bg-white  sticky mt-16 z-40">
         <div className="container py-4">
           <button
             onClick={() => setCurrentPage("projects")}
-            className="flex items-center space-x-2 text-gray-600 hover:text-primary transition-colors font-medium"
+            className="flex items-center space-x-2 text-slate-500 hover:text-primary transition-colors font-medium"
           >
             <span>←</span>
             <span>Retour aux projets</span>
@@ -73,7 +79,10 @@ function ProjectDetail({ projectId, setCurrentPage }) {
       {/* Hero Project */}
       <div className="bg-white py-20">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
+          <div
+            className="max-w-4xl mx-auto text-center animate-fade-in"
+            style={{ animationDelay: ` 0.1s` }}
+          >
             <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-medium mb-6">
               {project.category}
             </div>
