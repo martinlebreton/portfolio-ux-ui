@@ -1,4 +1,10 @@
 import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -56,11 +62,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <main className="pt-0">{renderPage()}</main>
-      <Footer setCurrentPage={setCurrentPage} />
-    </div>
+    <Router>
+      <div className="App">
+        <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <main className="pt-0">{renderPage()}</main>
+        <Footer setCurrentPage={setCurrentPage} />
+      </div>
+    </Router>
   );
 }
 

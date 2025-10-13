@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import AvatarCard from "../components/AvatarCard";
 import StatsCard from "../components/StatsCard";
 import SkillBar from "../components/SkillBar";
