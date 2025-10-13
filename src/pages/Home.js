@@ -13,9 +13,9 @@ function Home({ onProjectClick, setCurrentPage }) {
           className="container text-center animate-fade-in"
           style={{ animationDelay: `0.1s` }}
         >
-          <h1 className="">John DOE</h1>
+          <h1 className="">*John DOE*</h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Test UX/UI Designer passionné par les expériences utilisateur
+            UX/UI Designer passionné par les expériences utilisateur
             exceptionnelles
           </p>
           <button
