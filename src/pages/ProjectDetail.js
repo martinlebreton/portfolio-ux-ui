@@ -28,39 +28,6 @@ function ProjectDetail({ projectId, setCurrentPage }) {
     );
   }
 
-  const processSteps = [
-    {
-      step: "01",
-      title: "Recherche",
-      description: "Analyse des besoins et étude des utilisateurs",
-    },
-    {
-      step: "02",
-      title: "Idéation",
-      description: "Brainstorming et premières esquisses",
-    },
-    {
-      step: "03",
-      title: "Wireframes",
-      description: "Architecture de l'information et wireframes",
-    },
-    {
-      step: "04",
-      title: "Design",
-      description: "Conception visuelle et design system",
-    },
-    {
-      step: "05",
-      title: "Prototype",
-      description: "Prototypage interactif haute-fidélité",
-    },
-    {
-      step: "06",
-      title: "Tests",
-      description: "Tests utilisateurs et itérations",
-    },
-  ];
-
   return (
     <section className="min-h-screen bg-gray-50">
       {/* Header avec retour */}
@@ -140,39 +107,6 @@ function ProjectDetail({ projectId, setCurrentPage }) {
               <ProjectInfoCard title="Résultat" icon="📈">
                 {project.resultat}
               </ProjectInfoCard>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Processus de design */}
-      <div className="py-20 bg-white">
-        <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Processus de Design
-              </h2>
-              <p className="text-xl text-gray-600">
-                Les étapes clés de la conception
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {processSteps.map((item, index) => (
-                <div key={index} className="relative">
-                  <div className="bg-gradient-to-br from-primary to-blue-600 text-white p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div className="text-5xl font-bold opacity-20 mb-4">
-                      {item.step}
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-blue-100">{item.description}</p>
-                  </div>
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-200"></div>
-                  )}
-                </div>
-              ))}
             </div>
           </div>
         </div>
