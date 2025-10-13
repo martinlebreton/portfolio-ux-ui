@@ -1,17 +1,25 @@
-function Footer({ setCurrentPage }) {
+import { Link } from "react-router-dom";
+
+function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { name: "LinkedIn", icon: "💼", url: "https://linkedin.com/in/john-doe" },
+    { name: "Behance", icon: "🎨", url: "https://behance.net/johndoe" },
+    { name: "Dribbble", icon: "🏀", url: "https://dribbble.com/johndoe" },
     { name: "Instagram", icon: "📸", url: "https://instagram.com/johndoe" },
   ];
 
   const quickLinks = [
-    { name: "Accueil", page: "home" },
-    { name: "Projets", page: "projects" },
-    { name: "À propos", page: "about" },
-    { name: "Contact", page: "contact" },
+    { name: "Accueil", path: "/" },
+    { name: "Projets", path: "/projects" },
+    { name: "À propos", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
+
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer className="bg-slate-900 text-white">
@@ -32,7 +40,7 @@ function Footer({ setCurrentPage }) {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-slate-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors text-2xl"
+                  className="w-12 h-12 bg-gray-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors text-2xl"
                   title={social.name}
                 >
                   {social.icon}
@@ -47,15 +55,13 @@ function Footer({ setCurrentPage }) {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => {
-                      setCurrentPage(link.page);
-                      window.scrollTo(0, 0);
-                    }}
-                    className="text-slate-400 hover:text-primary transition-colors"
+                  <Link
+                    to={link.path}
+                    onClick={handleLinkClick}
+                    className="text-gray-400 hover:text-primary transition-colors"
                   >
                     {link.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -93,24 +99,20 @@ function Footer({ setCurrentPage }) {
               © {currentYear} John DOE. Tous droits réservés.
             </p>
             <div className="flex space-x-6 text-sm">
-              <button
-                onClick={() => {
-                  setCurrentPage("legal");
-                  window.scrollTo(0, 0);
-                }}
-                className="text-slate-400 hover:text-primary transition-colors"
+              <Link
+                to="/legal"
+                onClick={handleLinkClick}
+                className="text-gray-400 hover:text-primary transition-colors"
               >
                 Mentions légales
-              </button>
-              <button
-                onClick={() => {
-                  setCurrentPage("privacy");
-                  window.scrollTo(0, 0);
-                }}
-                className="text-slate-400 hover:text-primary transition-colors"
+              </Link>
+              <Link
+                to="/privacy"
+                onClick={handleLinkClick}
+                className="text-gray-400 hover:text-primary transition-colors"
               >
                 Politique de confidentialité
-              </button>
+              </Link>
             </div>
           </div>
         </div>

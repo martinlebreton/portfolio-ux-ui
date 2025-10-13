@@ -1,41 +1,50 @@
-function Header({ currentPage, setCurrentPage }) {
-  const handleNavClick = (page) => {
-    setCurrentPage(page);
+import { Link, useLocation } from "react-router-dom";
+import React from "react";
+
+function Header() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const getPageLabel = (path) => {
+    const labels = {
+      "/": "Accueil",
+      "/projects": "Projets",
+      "/about": "À propos",
+      "/contact": "Contact",
+    };
+    return labels[path];
   };
 
-  const getPageLabel = (page) => {
-    const labels = {
-      home: "Accueil",
-      projects: "Projets",
-      about: "À propos",
-      contact: "Contact",
-    };
-    return labels[page];
-  };
+  const navLinks = [
+    { path: "/", label: "Accueil" },
+    { path: "/projects", label: "Projets" },
+    { path: "/about", label: "À propos" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="container py-4">
         <div className="flex justify-between items-center">
-          <span
-            className="text-2xl font-bold cursor-pointer hover:text-primary transition-colors"
-            onClick={() => handleNavClick("home")}
+          <Link
+            to="/"
+            className="text-2xl font-bold text-gray-800 hover:text-primary transition-colors"
           >
             John DOE
-          </span>
+          </Link>
           <nav className="flex space-x-8">
-            {["home", "projects", "about", "contact"].map((page) => (
-              <button
-                key={page}
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
                 className={`font-medium transition-colors ${
-                  currentPage === page
+                  location.pathname === link.path
                     ? "text-primary border-b-2 border-primary pb-1"
                     : "text-gray-600 hover:text-primary"
                 }`}
-                onClick={() => handleNavClick(page)}
               >
-                {getPageLabel(page)}
-              </button>
+                {link.label}
+              </Link>
             ))}
           </nav>
         </div>
